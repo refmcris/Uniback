@@ -29,8 +29,9 @@ connection.connect((err) => {
 });
 
 app.use(cors({
-  origin: 'http://localhost:3000', 
+  origin: '*',  // Permite solicitudes de cualquier origen
 }));
+
 app.use(bodyParser.json());
 app.use(express.json());
 
