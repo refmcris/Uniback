@@ -15,8 +15,8 @@ const mysql = require('mysql2');
 // const EmailTemplate = require('../Components/DashboardUsuarios/emailtemplate');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
+  host: 'unibackdev.cpmme2q04dqd.us-east-1.rds.amazonaws.com',
+  user: 'admin',
   password: 'Loud7120_',
   database: 'uninventory'
 });
@@ -29,7 +29,7 @@ connection.connect((err) => {
 });
 
 app.use(cors({
-  origin: '*',  // Permite solicitudes de cualquier origen
+  origin: 'https://crisdev.d21m69cfg7rqlb.amplifyapp.com', 
 }));
 
 app.use(bodyParser.json());
