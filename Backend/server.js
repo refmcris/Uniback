@@ -12,7 +12,7 @@ const app = express();
 const port = 3001; 
 
 const mysql = require('mysql2');
-const EmailTemplate = require('../Components/DashboardUsuarios/emailtemplate');
+// const EmailTemplate = require('../Components/DashboardUsuarios/emailtemplate');
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -65,37 +65,37 @@ app.post('/api/checkEmail', async (req, res) => {
 
 
 
-app.post('/api/sendEmail', async (req, res) => {
-  const { from, to, subject,token } = req.body;
+// app.post('/api/sendEmail', async (req, res) => {
+//   const { from, to, subject,token } = req.body;
 
-  const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-          type: 'OAuth2',
-          user: 'univentory1@gmail.com', 
-          clientId: '738690101223-sehppvhn9qapplbestmra3aar6gmmhig.apps.googleusercontent.com', 
-          clientSecret: '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', 
-          refreshToken: '1//04Gzz8REnqThzCgYIARAAGAQSNwF-L9IrnfYfQhpLn9ZyNZNGD5ODHMU0kfZU540KipetDxhb5dtbj6VsacCjkfyTnwmW3yinq9U', 
-          accessToken: 'ya29.a0AcM612wBHdlgVcBmFj38EQoDTRMgA8vJI9_7F_293itj_i4dbXIrlGn7bi8dMIQkgzwOSb1gOrkDeXoDO4lnSDdvAxxQIdsRJiv_76AdslZjBYErpEJSHZF6BzQzs7D400iWEhAsTGgKWBKyB_IEwBEWeN6LXhwMAeaz1orpaCgYKASISARASFQHGX2MiQ1i3mSL40R2jSt2KpNfOgw0175'
-      }
-  });
-  const resetLink = `http://localhost:3000/contrarecupera?token=${token}`;
-  const htmlcontent = EmailTemplate(resetLink);
+//   const transporter = nodemailer.createTransport({
+//       service: 'gmail',
+//       auth: {
+//           type: 'OAuth2',
+//           user: 'univentory1@gmail.com', 
+//           clientId: '738690101223-sehppvhn9qapplbestmra3aar6gmmhig.apps.googleusercontent.com', 
+//           clientSecret: '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', 
+//           refreshToken: '1//04Gzz8REnqThzCgYIARAAGAQSNwF-L9IrnfYfQhpLn9ZyNZNGD5ODHMU0kfZU540KipetDxhb5dtbj6VsacCjkfyTnwmW3yinq9U', 
+//           accessToken: 'ya29.a0AcM612wBHdlgVcBmFj38EQoDTRMgA8vJI9_7F_293itj_i4dbXIrlGn7bi8dMIQkgzwOSb1gOrkDeXoDO4lnSDdvAxxQIdsRJiv_76AdslZjBYErpEJSHZF6BzQzs7D400iWEhAsTGgKWBKyB_IEwBEWeN6LXhwMAeaz1orpaCgYKASISARASFQHGX2MiQ1i3mSL40R2jSt2KpNfOgw0175'
+//       }
+//   });
+//   const resetLink = `http://localhost:3000/contrarecupera?token=${token}`;
+//   const htmlcontent = EmailTemplate(resetLink);
 
-  const mailOptions = {
-      from,
-      to,
-      subject,
-      html: htmlcontent, 
-  };
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Correo enviado con éxito', info });
-} catch (error) {
-    console.error('Error al enviar el correo:', error);
-    res.status(500).json({ error: 'Error al enviar el correo', details: error });
-}
-});
+//   const mailOptions = {
+//       from,
+//       to,
+//       subject,
+//       html: htmlcontent, 
+//   };
+//   try {
+//     const info = await transporter.sendMail(mailOptions);
+//     res.status(200).json({ message: 'Correo enviado con éxito', info });
+// } catch (error) {
+//     console.error('Error al enviar el correo:', error);
+//     res.status(500).json({ error: 'Error al enviar el correo', details: error });
+// }
+// });
   
 app.put('/api/resetPassword', async (req, res) => {
   const { token, newPassword } = req.body;
