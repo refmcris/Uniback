@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `equipos` (
   `ubicación` varchar(100) DEFAULT NULL,
   `fecha_ingreso` timestamp NULL DEFAULT current_timestamp(),
   `descripcion` varchar(50) NOT NULL,
-  `imagen` longtext DEFAULT 'https://res.cloudinary.com/ds6fxjeak/image/upload/v1729631919/10MOTOS-01_b1hofk.jpg',
+  `imagen` longtext DEFAULT NULL,
   PRIMARY KEY (`id_equipo`),
   UNIQUE KEY `Índice 2` (`serial`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `rol` enum('admin','docente','estudiante') NOT NULL,
   `contraseña` varchar(255) NOT NULL,
   `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
-  `imagen` longtext NOT NULL DEFAULT 'https://res.cloudinary.com/ds6fxjeak/image/upload/v1729698957/image_2024-10-23_105558318_caixie.png',
+  `imagen` longtext NOT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `documento` (`documento`),
   UNIQUE KEY `correo_electronico` (`correo_electronico`)
