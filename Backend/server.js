@@ -29,7 +29,7 @@ connection.connect((err) => {
 });
 
 app.use(cors({
-  origin: 'https://crisdev.d21m69cfg7rqlb.amplifyapp.com', 
+  origin: 'https://crisdev.d21nhprpu2slfy.amplifyapp.com', 
 }));
 
 app.use(bodyParser.json());
