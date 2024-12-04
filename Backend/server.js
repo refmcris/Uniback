@@ -29,8 +29,9 @@ connection.connect((err) => {
 });
 
 app.use(cors({
-  origin: 'https://crisdev.d21nhprpu2slfy.amplifyapp.com', 
+  origin: ['https://crisdev.d21nhprpu2slfy.amplifyapp.com', 'http://localhost:3000'], 
 }));
+
 
 app.use(bodyParser.json());
 app.use(express.json());
